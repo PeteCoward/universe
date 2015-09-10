@@ -1,0 +1,10 @@
+planet list
+<br />
+<a href="{% url 'create' %}">Create</a>
+<br />
+{% for planet in object_list %}
+    <a href="{% url 'delete' planet.pk %}">Delete</a>
+    <a href="{% url 'update' planet.pk %}">Update</a>
+    {{ planet.name }} - {{ planet.mass }} - {{ planet.distance_from_sun }}
+    <br>
+{% endfor %}
