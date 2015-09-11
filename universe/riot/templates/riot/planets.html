@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>RiotDemo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--[if lt IE 9]>
+    <script src="js/es5-shim.js"></script>
+    <script src="js/html5-shiv.js"></script>
+    <script>html5.addElements('planets')</script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <planets></planets>
+
+    <!-- include riot.js and the compiler and riot control -->
+    <script src="{{ STATIC_URL }}js/riot+compiler.min.js"></script>
+    <script src="{{ STATIC_URL }}js/riotcontrol.js"></script>
+
+    <!-- data layer -->
+    <script src="{{ STATIC_URL }}js/datastores/planets_stores.js" type="text/javascript"></script>
+
+    <!-- inlined tag definition -->
+    <script src="{{ STATIC_URL }}js/tags/planets_tags.js" type="riot/tag"></script>
+
+    <script>
+      var planetsStore = new PlanetsStoreInMemory() // Create a store instance.
+      RiotControl.addStore(planetsStore) // Register the store in central dispatch.
+      riot.mount('planets') // Kickoff the Riot app.
+    </script>
+
+  </body>
+
+</html>

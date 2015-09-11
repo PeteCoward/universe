@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^space/', include('space.urls')),
+    url(r'^riot/', include('riot.urls')),
 ]
